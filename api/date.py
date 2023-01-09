@@ -14,3 +14,5 @@ class handler(BaseHTTPRequestHandler):
     self.end_headers()
     self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
     return
+
+# when you "Visit" Button from Vercel (get 404 error) you have to add /api/date to url to get the date to show up
