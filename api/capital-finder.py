@@ -13,7 +13,7 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            message = str(data[0]["capital"])+" is the capital of "+str(data[0]["name"]["common"])+"."
+            message = str(data[0]["capital"][0])+" is the capital of "+str(data[0]["name"]["common"])+"."
 
         else:
             message = "Give me a country or capital in the world"
