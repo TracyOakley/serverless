@@ -9,6 +9,12 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
 
+        if "country" in dic:
+            url = "https://restcountries.com/v3.1/name/"
+            r = requests.get(url + dic["country"])
+            data = r.json()
+            message = "The capital of "+str(data[0]["name"]["common"])+" is "+str(data[0]["capital"][0])+"."
+
         if "capital" in dic:
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
